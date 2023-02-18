@@ -1,0 +1,19 @@
+.table-container {
+    display: flex;    
+}
+
+.table {    
+    flex-direction: column;    
+}
+
+header {      
+    font-weight: 650;    
+    display: flex;    
+}
+
+header>.title {
+    flex: 1;
+    border: 1px solid black;                     
+    text-transform: capitalize;
+    display: table;
+}

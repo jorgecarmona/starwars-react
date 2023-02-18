@@ -1,18 +1,28 @@
 import React from "react";
 import "../styles/App.css";
 
-import {ENGButton} from "../components/atoms";
+import {ENGTable} from "../components/atoms";
 
 function App() {
-  const buttonHandler = () => {
-    console.log("le picaron ");
-  };
-
   return (
     <div className="App">
-      <ENGButton variant="contained" onClick={buttonHandler}>
-        Hola Chicos!
-      </ENGButton>
+      <ENGTable 
+        tableWidth={500} 
+        tableAlignment="center"
+        cellAlignment="center"
+        cellVerticalAlignment="middle"
+        columnTitles = {[
+          "Num",
+          <input type={"checkbox"}></input>,
+          "Nombre",
+          "Edad",
+          "Altura"
+        ]}        
+      >
+
+      </ENGTable>
+        
+      
     </div>
   );
 }
