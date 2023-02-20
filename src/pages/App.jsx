@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/App.css";
 
-import {ENGButton, ENGSwitch, ENGCheckbox} from "../components/atoms";
+import {ENGButton, ENGSwitch} from "../components/atoms";
 
 function App() {
   const buttonHandler = (nombre) => {
@@ -14,7 +14,6 @@ function App() {
         CLICK
       </ENGButton>
       <ENGSwitch checked={true} color="error"/> 
-      <ENGCheckbox checked={true}/>
     </div>
   );
 }
