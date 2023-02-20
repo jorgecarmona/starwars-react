@@ -17,3 +17,19 @@ header>.title {
     text-transform: capitalize;
     display: table;
 }
+
+.rows-container {        
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    flex: 1;    
+    display: flex;
+}
+
+.row>.cell {
+    flex: 1;
+    border: 1px solid black;
+    display: table;
+}
