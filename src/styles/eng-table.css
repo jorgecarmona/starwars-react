@@ -17,6 +17,6 @@ thead {
     flex-direction: column;
 }
 
-.row>td {    
+.row>td, .row>th {    
     border: 1px solid black;   
 }

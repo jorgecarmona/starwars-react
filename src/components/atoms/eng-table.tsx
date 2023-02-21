@@ -1,5 +1,9 @@
 import React from 'react';
 import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 
 import "../../styles/eng-table.css"
 
@@ -8,12 +12,12 @@ function ENGTable(props: any) {
     let cell;
     if (column.field === "checkbox" && row[column.field]){
       cell =
-      <td key={column.field+"-"+index} width={column.width}>
+      <TableCell key={column.field+"-"+index} width={column.width}>
         <input type="checkbox"></input>
-      </td>
+      </TableCell>
     }
     else {
-      cell = <td key={column.field+"-"+index} width={column.width}>{row[column.field]}</td>
+      cell = <TableCell key={column.field+"-"+index} width={column.width}>{row[column.field]}</TableCell>
     }
     return cell;
   }
@@ -21,28 +25,28 @@ function ENGTable(props: any) {
   return (
     <div className='table-container'>
       <Table className='table'>
-        <thead>
-          <div className='row'>
+        <TableHead>          
+          <TableRow className='row'>
             {
               props.columns.map((column: any) => (                
-                <td key={column.field} width={column.width}>{column.headerName}</td>          
+                <th key={column.field} style={{width:column.width}}>{column.headerName}</th>          
               ))
             }
-          </div>        
-        </thead>       
-        <div className="rows-container">
+          </TableRow>        
+        </TableHead>       
+        <TableBody className="rows-container">
           {
             props.rows.map((row: any, index: number) => (
-              <div className='row'>
+              <TableRow className='row' key={"row-"+index}>
                 {
                   props.columns.map((column: any) => (
                     populateCells(row, column, index)                 
                   ))                  
                 }
-              </div>
+              </TableRow>
             ))
           }        
-        </div>         
+        </TableBody>         
       </Table>
     </div>
   )
