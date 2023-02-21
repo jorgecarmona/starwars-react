@@ -1,18 +1,9 @@
-import Button from '@mui/material';
+import React from "react";
+import Button from "@mui/material/Button";
 
-interface Props {
-    color: string;
-    children: React.ReactNode;
-    onClick: () => void;
-    variant: string;
-}
-
-function ENGButton(props: Props) {
-    return (
-        <ENGButton color={props.color} onClick={props.onClick} variant={props.variant}>
-        {props.children}
-        </ENGButton>
-    );
+function ENGButton(props: any) {
+  const {children = "Unassigned Button Text"} = props;
+  return <Button {...props}>{children}</Button>;
 }
 
 export default ENGButton;
