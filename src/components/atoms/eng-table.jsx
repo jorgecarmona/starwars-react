@@ -4,36 +4,36 @@ import Table from '@mui/material/Table';
 import "../../styles/eng-table.css"
 
 function ENGTable(props) {   
-  let minWidth = [];
-
   return (
-    <div className='table-container' style={{justifyContent:props.tableAlignment}}>
-    <Table className='table' sx={{width:props.tableWidth}}>
-      <header>
-        {
-          props.columnTitles.map((title, index) => (
-            <div key={`title-${index}`} className="title">
-              <span style={{display:"table-cell", verticalAlign:props.cellVerticalAlignment, textAlign: props.cellAlignment}}>
-               {title}
-              </span>              
-            </div>            
-          ))
-        }    
-      </header>        
+    <div className='table-container'>
+    <Table className='table'>
+      <thead>
+        <row>
+          <td>A</td>
+          <td>B</td>
+          <td>C</td>
+          <td>D</td>
+        </row>
+      </thead>       
       <div className="rows-container">
-        {         
-          props.rowsContent.map((rowInfo, index) => (
-            <div key={`rowContainer-${index}`} className="row">
-              {props.columnTitles.map((a, subindex) => (
-                <div key={`row-${index}-${subindex}`} className="cell">
-                  <span style={{display:"table-cell", verticalAlign:props.cellVerticalAlignment, textAlign: props.cellAlignment}}>
-                    {rowInfo[subindex]? rowInfo[subindex] : "" }
-                  </span>
-                </div>            
-              ))}
-            </div>
-          ))          
-        }
+        <row>
+          <td>A1</td>
+          <td>B1</td>
+          <td>C1</td>
+          <td>D1</td>
+        </row>
+        <row>
+          <td>A2</td>
+          <td>B2</td>
+          <td>C2</td>
+          <td>D2</td>
+        </row>
+        <row>
+          <td>A3</td>
+          <td>B3</td>
+          <td>C3</td>
+          <td>D3</td>
+        </row>
       </div>         
     </Table>
     </div>
