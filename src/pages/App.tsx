@@ -1,30 +1,37 @@
 import React from "react";
-import logo from "../assets/logo.svg";
 import "../styles/App.css";
 
-import {Button} from "@mui/material";
+import {ENGButton, ENGTable} from "../components/atoms";
 
 function App() {
   const buttonHandler = () => {
-    console.log("le picaron");
+    console.log("le picaron ");
   };
-
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-        <h4>Test of MUI library</h4>
-        <Button color="secondary" onClick={buttonHandler} variant="contained">
-          Contained
-        </Button>
-      </header>
-    </div>
+      <ENGButton variant="contained" onClick={buttonHandler}></ENGButton>
+      <ENGTable        
+        cellAlignment="left"        
+        columns = {[
+          { field: 'checkbox', headerName: '', width: 70 },
+          { field: 'number', headerName: 'Number', width: 140 },
+          { field: 'name', headerName: 'Name', width: 210 },
+          { field: 'height', headerName: 'Height', width: 140 },
+          { field: 'mass', headerName: 'Mass', width: 140 },
+          { field: 'birthYear', headerName: 'Birth Year', width: 140 },          
+          { field: 'gender', headerName: 'Gender', width: 140 }
+        ]}
+        rows = {
+          [
+            { checkbox: true, number: 1, name: "Andres", height: 173, mass: 65, birthYear: 1996, gender: "Male"  },
+            { checkbox: true, number: 2, name: 'Snow', height: 100, mass: 35, birthYear: 1548, gender: "Female" },
+            { checkbox: true, number: 3, name: 'Lannister', height: 120, mass: 42, birthYear: 5485, gender: "Male" },
+            { checkbox: true, number: 4, name: 'Lannister', height: 100, mass: 45, birthYear: 4586, gender: "Female" }            
+          ]
+        }    
+      >
+      </ENGTable> 
+      </div>
   );
 }
 

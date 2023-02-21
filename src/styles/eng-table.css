@@ -6,7 +6,7 @@
     flex-direction: column;    
 }
 
-header {      
+thead {      
     font-weight: 650;    
     display: flex;    
 }
