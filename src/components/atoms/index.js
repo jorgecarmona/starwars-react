@@ -1,3 +1,6 @@
 import ENGButton from "./eng-button";
+import ENGSwitch from "./eng-switch";
+import ENGCheckbox from "./eng-checkbox";
 
-export {ENGButton};
+export {ENGButton, ENGSwitch, ENGCheckbox};
+
