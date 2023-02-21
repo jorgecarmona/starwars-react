@@ -8,14 +8,8 @@
 
 thead {      
     font-weight: 650;    
-    display: flex;    
-}
-
-header>.title {
-    flex: 1;
-    border: 1px solid black;                     
-    text-transform: capitalize;
-    display: table;
+    display: flex; 
+    text-transform: capitalize;   
 }
 
 .rows-container {        
@@ -23,13 +17,6 @@ header>.title {
     flex-direction: column;
 }
 
-.row {
-    flex: 1;    
-    display: flex;
-}
-
-.row>.cell {
-    flex: 1;
-    border: 1px solid black;
-    display: table;
+.row>td {    
+    border: 1px solid black;   
 }
