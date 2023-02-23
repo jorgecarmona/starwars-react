@@ -7,17 +7,37 @@ import TableRow from '@mui/material/TableRow';
 
 import "../../styles/eng-table.css"
 
-function ENGTable(props: any) {   
-  function populateCells(row: any, column: any, index: number) {    
+interface column {
+  field: string;
+  headerName: string; 
+  width: number;
+}
+
+interface table {
+  columns: column[];
+  rows: object[];
+}
+
+function ENGTable(props: table) {   
+  function populateCell(row: any, column: any, index: number) {    
     let cell;
     if (column.field === "checkbox" && row[column.field]){
       cell =
-      <TableCell key={column.field+"-"+index} width={column.width}>
+      <TableCell 
+        key={column.field+"-"+index} 
+        width={column.width}
+      >
         <input type="checkbox"></input>
       </TableCell>
     }
     else {
-      cell = <TableCell key={column.field+"-"+index} width={column.width}>{row[column.field]}</TableCell>
+      cell = 
+      <TableCell 
+        key={column.field+"-"+index}
+        width={column.width}
+      >
+        {row[column.field]}
+      </TableCell>
     }
     return cell;
   }
@@ -29,7 +49,12 @@ function ENGTable(props: any) {
           <TableRow className='row'>
             {
               props.columns.map((column: any) => (                
-                <th key={column.field} style={{width:column.width}}>{column.headerName}</th>          
+                <th 
+                  key={column.field} 
+                  style={{width:column.width}}
+                >
+                  {column.headerName}
+                </th>          
               ))
             }
           </TableRow>        
@@ -40,7 +65,7 @@ function ENGTable(props: any) {
               <TableRow className='row' key={"row-"+index}>
                 {
                   props.columns.map((column: any) => (
-                    populateCells(row, column, index)                 
+                    populateCell(row, column, index)                 
                   ))                  
                 }
               </TableRow>
