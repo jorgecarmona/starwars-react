@@ -11,7 +11,7 @@ describe("Render table", () => {
       expect(table).toBeInTheDocument();
     });
 
-    test("displays default paramenters when Button text is not passed", () => {
+    test("displays default paramenters when data is not passed", () => {
         render(<ENGTable columns = {[]} rows = {[]}/>);
     
         const table = screen.getByRole("table");
