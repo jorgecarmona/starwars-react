@@ -5,23 +5,23 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-import "../../styles/eng-table.css"
+import "../../styles/components/atoms/eng-table.css"
 
 interface column {
   field: string;
-  headerName: string; 
-  width: number;
+  headerName?: string; 
+  width?: number;
 }
 
-interface table {
+type Table = {
   columns: column[];
   rows: object[];
 }
 
-function ENGTable(props: table) {   
-  function populateCell(row: any, column: any, index: number) {    
+function ENGTable(props: Table) {   
+  function populateCell(row: any, column: column, index: number) {    
     let cell;
-    if (column.field === "checkbox" && row[column.field]){
+    if (column.field === "checkbox" && row.checkbox) {
       cell =
       <TableCell 
         key={column.field+"-"+index} 
@@ -44,11 +44,11 @@ function ENGTable(props: table) {
   
   return (
     <div className='table-container'>
-      <Table className='table'>
+      <Table>
         <TableHead>          
-          <TableRow className='row'>
+          <TableRow className='row' key='row-head'>
             {
-              props.columns.map((column: any) => (                
+              props.columns?.map((column: column) => (                
                 <th 
                   key={column.field} 
                   style={{width:column.width}}
@@ -59,12 +59,12 @@ function ENGTable(props: table) {
             }
           </TableRow>        
         </TableHead>       
-        <TableBody className="rows-container">
+        <TableBody>
           {
-            props.rows.map((row: any, index: number) => (
+            props.rows?.map((row: any, index: number) => (
               <TableRow className='row' key={"row-"+index}>
                 {
-                  props.columns.map((column: any) => (
+                  props.columns?.map((column: column) => (
                     populateCell(row, column, index)                 
                   ))                  
                 }

@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/App.css";
+import "../styles/pages/App.css";
 
 import {ENGButton, ENGTable} from "../components/atoms";
 
