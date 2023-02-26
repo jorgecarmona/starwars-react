@@ -1,6 +1,5 @@
 import ENGButton from "./eng-button";
-import ENGSwitch from "./eng-switch";
-import ENGCheckbox from "./eng-checkbox";
+import ENGTable from "./eng-table";
 
-export {ENGButton, ENGSwitch, ENGCheckbox};
+export {ENGButton, ENGTable};
 
